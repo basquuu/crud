@@ -32,3 +32,9 @@ def create(request):
   post.save()
   
   return redirect(f'/posts/{post.id}/') #여기서 저쪽으로 이동해라
+
+def delete(request, id):
+  post = Post.objects.get(id=id)
+  post.delete()
+  
+  return redirect('/')
